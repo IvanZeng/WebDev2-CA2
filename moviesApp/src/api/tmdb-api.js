@@ -111,7 +111,6 @@ export const getMovie = (args) => {
     ).then(res=>res.json());
   };  
 
-  
   export const getSimilarMovies = id => {
     return fetch(
       `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
