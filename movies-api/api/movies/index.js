@@ -8,7 +8,8 @@ import {getUpcomingMovies,
         getTopRatedMovies, 
         getPopularMovies, 
         getSimilarMovies, 
-        getMovies, getMovie, 
+        getMovies, 
+        getMovie, 
         getMovieImages,
         getMovieReviews} from '../tmdb-api';
 
@@ -89,33 +90,31 @@ router.post('/:id/reviews', asyncHandler(async (req, res) => {
     }
 }));
 
-router.get('/tmdb/upcoming', asyncHandler( async(req, res) => {
+router.get('/upcoming', asyncHandler(async(req, res) => {
     const upcomingMovies = await getUpcomingMovies();
     res.status(200).json(upcomingMovies);
   }));
 
-router.get('/tmdb/nowplaying', asyncHandler( async(req, res) => {
+
+router.get('/nowplaying', asyncHandler(async(req, res) => {
     const nowplayingMovies = await getNowPlayingMovies();
     res.status(200).json(nowplayingMovies);
   }));
 
-router.get('/tmdb/toprated', asyncHandler( async(req, res) => {
+router.get('/toprated', asyncHandler(async(req, res) => {
     const topratedMovies = await getTopRatedMovies();
     res.status(200).json(topratedMovies);
   }));  
 
-router.get('/tmdb/popular', asyncHandler( async(req, res) => {
+router.get('/popular', asyncHandler(async(req, res) => {
     const popularMovies = await getPopularMovies();
     res.status(200).json(popularMovies);
   })); 
   
-router.get('/:id/similar', asyncHandler( async(req, res) => {
+router.get('/similar', asyncHandler(async(req, res) => {
     const id = parseInt(req.params.id); 
     const similarMovies = await getSimilarMovies(id);
     res.status(200).json(similarMovies);
 }));
-
-
- 
 
 export default router;
