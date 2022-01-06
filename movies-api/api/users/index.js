@@ -65,7 +65,7 @@ router.put('/:id', async (req, res) => {
     const movie = await movieModel.findByMovieDBId(newFavourite);
     const user = await User.findByUserName(userName);
     if(!user.favourites.includes(movie._id)){
-       await user.favourites.push(movie._id);
+      await user.favourites.push(movie._id);
         await user.save(); 
         res.status(201).json(user);  
     }else {

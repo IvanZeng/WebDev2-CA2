@@ -238,9 +238,11 @@ export const getMovie = (args) => {
   //     .then(json => json.results);
   // };
 
+
+  //     '/:id/similar'
   export const getSimilarMovies = (id) => {
     return fetch(
-      `/api/movies/${id}/similar`,
+      `/api/${id}/similar`,
       {headers: {
         'Authorization': window.localStorage.getItem('token')
       }}
