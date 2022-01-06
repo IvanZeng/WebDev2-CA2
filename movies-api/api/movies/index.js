@@ -111,7 +111,7 @@ router.get('/popular', asyncHandler(async(req, res) => {
     res.status(200).json(popularMovies);
   })); 
   
-router.get('/similar', asyncHandler(async(req, res) => {
+router.get('/:id/similar', asyncHandler(async(req, res) => {
     const id = parseInt(req.params.id); 
     const similarMovies = await getSimilarMovies(id);
     res.status(200).json(similarMovies);
