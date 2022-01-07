@@ -242,7 +242,7 @@ export const getMovie = (args) => {
   //     '/:id/similar'
   export const getSimilarMovies = (id) => {
     return fetch(
-      `/api/${id}/similar`,
+      `/api/movies/${id}/similar`,
       {headers: {
         'Authorization': window.localStorage.getItem('token')
       }}
