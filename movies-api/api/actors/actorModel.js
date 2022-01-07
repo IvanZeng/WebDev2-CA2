@@ -7,4 +7,4 @@ const ActorSchema = new Schema({
   name: {type: String, required: true }
 });
 
-export default mongoose.model('Actor', GenreSchema);
+export default mongoose.model('Actor', ActorSchema);
