@@ -119,42 +119,4 @@ describe("Movies endpoint", () => {
     });
    });
   });
-
-  describe("GET /api/users/username/favourites ", () => {
-    it("should return the  favourites movies and a status 201", () => {
-      request(api)
-        .get(`/api/users/user1/favourites`)
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
-        .expect(201)
-        .end((err, res) => {
-          expect(res.body).to.be.a("array");
-          expect(res.body.length).to.equal(0);
-        });
-    });
-  })
-  describe("POST /users/username/favourites ", () => {
-    it("should the vaild movie id and a status 201", () => {
-      request(api)
-        .post(`/api/users/user1/favourites`)
-        .send({
-          id: "238"
-        })
-        .expect(201);
-    });
-
-    it("should return wrong movie id and a status 401 ", () => {
-      request(api)
-        .post(`/api/users/user1/favourites`)
-        .send({
-          id: "aaaa",
-        });
-      request(api)
-        .post(`/api/users/user1/favourites`)
-        .send({
-          id: "aaaa",
-        })
-        .expect(401);
-    });
-  })
 });
